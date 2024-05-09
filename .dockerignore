@@ -1,0 +1,5 @@
+.git
+build/*
+#files/hg*
+TRHelper/__pycache__
+TotalReCall.egg-info/*

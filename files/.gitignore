@@ -1,0 +1,4 @@
+*
+!.gitignore
+!samtools
+!igv_211.tgz

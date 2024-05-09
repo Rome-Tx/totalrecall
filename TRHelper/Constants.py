@@ -1,0 +1,31 @@
+# BAM/FASTQ related
+FLAG_MUNMAP = 0x08
+FLAG_MREVERSE = 0x20
+
+# PHRED quality offset
+Q_OFFSET = 33
+
+# poly(A) score related
+POLYA_R = 10
+POLYA_Q = 20
+POLYA_FULL_Q = 50
+POLYA_MINSCORE = 150
+POLYA_MINSCORE_1P = 120
+POLYA_MINSCORE_FULL = 70
+POLYA_5TRIM = 5
+MAX_Q = 100
+
+# clipped clusters filter
+CC_DIST_SET = (5, 10, 20, 50)
+NCC_CUTOFF = (5, 5, 5, 10)
+CC_CLUSTERING_CUTOFF = 5 * max(NCC_CUTOFF)
+
+# dummy value for LTR transposon length
+LTR_TRANSPOSON_LEN = 10000
+
+# screenshots
+MAX_SCREENSHOTS = 10000
+
+# precluster length cutoff
+MAX_PRECLUSTER_LEN = 50000
+MAX_CLUSTER_INPUT_LEN = 100
