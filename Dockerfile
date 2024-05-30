@@ -1,14 +1,8 @@
-FROM debian:bullseye
+FROM debian:bullseye as source
 
 # install required packages from repositories
 #RUN sed -i -e "s/ main[[:space:]]*\$/ main contrib non-free/" /etc/apt/sources.list
 RUN DEBIAN_FRONTEND=noninteractive apt-get update -y && apt-get upgrade -y && apt-get install -y --no-install-recommends python3 python3-biopython python3-pysam python3-scipy python3-sklearn libhts-dev cython3 gawk sed procps psmisc util-linux python3-pip python3-dev gcc snakemake xvfb xauth default-jre ncbi-blast+ last-align fml-asm zstd
-
-# environment variables
-ENV LANG C.UTF-8
-ENV LC_ALL C.UTF-8
-ENV LC_COLLATE C
-ENV TERM xterm
 
 # add the code, the genome file and the IGV files
 RUN mkdir -p /opt/totalrecall/last && mkdir /code
@@ -30,6 +24,16 @@ RUN cd /code && pip3 install . && \
 # place the variable part in the very end
 ARG genome_tar="files/hg38.tgz"
 ADD "$genome_tar" /opt/totalrecall
+
+# copy all the files over to the final image in order to squash it
+FROM scratch
+COPY --from=source / /
+
+# environment variables
+ENV LANG C.UTF-8
+ENV LC_ALL C.UTF-8
+ENV LC_COLLATE C
+ENV TERM xterm
 
 # default directory
 WORKDIR /
