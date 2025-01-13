@@ -51,6 +51,46 @@ and build using the custom genome:
 docker build --build-arg genome_tar="files/hg19.tgz" . -t totalrecall:demo
 ```
 
+### Dependencies
+Dependencies are automatically installed into the Docker image built using the provided `Dockerfile`. Below we list the dependencies and the versions the code was tested with:
+
+`python` v 3.9
+
+`biopython` v 1.78
+
+`pysam` v 0.15.4
+
+`scipy` v 1.6.0
+
+`sklearn` v 0.23.2
+
+`htslib` v 1.11
+
+`cython` v 0.29.21
+
+`GNU awk` v 5.1.0
+
+`sed` v  4.7
+
+`gcc` v 10.2.1
+
+`snakemake` v 5.24.1
+
+`xvfb` v 1.20.11
+
+`xauth` v 1.1
+
+`java` v 11.0.23
+
+`NCBI BLAST+` v 2.11.0
+
+`LAST` aligner v 1179
+
+`zstd` v 1.4.8
+
+`samtools` v 1.18
+
+
 ## Running
 To run the code:
 
